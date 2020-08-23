@@ -17,6 +17,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1fuuFZxcP2IMoFTDZ21UXeYKR32" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -31,6 +34,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -42,9 +46,16 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
-  <component name="RunManager" selected="JUnit.BlackJackTest">
+  <component name="RunManager" selected="Application.PlayGame">
     <configuration name="PlayBlackJack" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="PlayBlackJack" />
+      <module name="Java projects" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlayGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="PlayGame" />
       <module name="Java projects" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -69,16 +80,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BlackJackTest.testLoser1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Java projects" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BlackJackTest" />
-      <option name="METHOD_NAME" value="testLoser1" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="BlackJackTest.testTie1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Java projects" />
       <option name="PACKAGE_NAME" value="" />
@@ -91,11 +92,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PlayGame" />
         <item itemvalue="JUnit.BlackJackTest" />
         <item itemvalue="JUnit.BlackJackTest.testBust1" />
         <item itemvalue="Application.PlayBlackJack" />
         <item itemvalue="JUnit.BlackJackTest.testTie1" />
-        <item itemvalue="JUnit.BlackJackTest.testLoser1" />
       </list>
     </recent_temporary>
   </component>
@@ -116,6 +117,8 @@
       <workItem from="1598015765942" duration="6789000" />
       <workItem from="1598044018373" duration="7599000" />
       <workItem from="1598089269946" duration="3335000" />
+      <workItem from="1598166689206" duration="1405000" />
+      <workItem from="1598168233600" duration="3472000" />
     </task>
     <servers />
   </component>
@@ -135,38 +138,38 @@
       <screen x="0" y="0" width="1536" height="832" />
     </state>
     <state x="549" y="157" key="FileChooserDialogImpl/0.0.1536.832@0.0.1536.832" timestamp="1597221794899" />
-    <state width="1493" height="194" key="GridCell.Tab.0.bottom" timestamp="1598091294267">
+    <state width="1493" height="559" key="GridCell.Tab.0.bottom" timestamp="1598171709730">
       <screen x="0" y="0" width="1536" height="832" />
     </state>
-    <state width="1493" height="194" key="GridCell.Tab.0.bottom/0.0.1536.832@0.0.1536.832" timestamp="1598091294267" />
-    <state width="1493" height="194" key="GridCell.Tab.0.center" timestamp="1598091294267">
+    <state width="1493" height="559" key="GridCell.Tab.0.bottom/0.0.1536.832@0.0.1536.832" timestamp="1598171709730" />
+    <state width="1493" height="559" key="GridCell.Tab.0.center" timestamp="1598171709729">
       <screen x="0" y="0" width="1536" height="832" />
     </state>
-    <state width="1493" height="194" key="GridCell.Tab.0.center/0.0.1536.832@0.0.1536.832" timestamp="1598091294267" />
-    <state width="1493" height="194" key="GridCell.Tab.0.left" timestamp="1598091294267">
+    <state width="1493" height="559" key="GridCell.Tab.0.center/0.0.1536.832@0.0.1536.832" timestamp="1598171709729" />
+    <state width="1493" height="559" key="GridCell.Tab.0.left" timestamp="1598171709729">
       <screen x="0" y="0" width="1536" height="832" />
     </state>
-    <state width="1493" height="194" key="GridCell.Tab.0.left/0.0.1536.832@0.0.1536.832" timestamp="1598091294267" />
-    <state width="1493" height="194" key="GridCell.Tab.0.right" timestamp="1598091294267">
+    <state width="1493" height="559" key="GridCell.Tab.0.left/0.0.1536.832@0.0.1536.832" timestamp="1598171709729" />
+    <state width="1493" height="559" key="GridCell.Tab.0.right" timestamp="1598171709729">
       <screen x="0" y="0" width="1536" height="832" />
     </state>
-    <state width="1493" height="194" key="GridCell.Tab.0.right/0.0.1536.832@0.0.1536.832" timestamp="1598091294267" />
-    <state width="1493" height="264" key="GridCell.Tab.1.bottom" timestamp="1598036566354">
+    <state width="1493" height="559" key="GridCell.Tab.0.right/0.0.1536.832@0.0.1536.832" timestamp="1598171709729" />
+    <state width="1493" height="264" key="GridCell.Tab.1.bottom" timestamp="1598168095838">
       <screen x="0" y="0" width="1536" height="832" />
     </state>
-    <state width="1493" height="264" key="GridCell.Tab.1.bottom/0.0.1536.832@0.0.1536.832" timestamp="1598036566354" />
-    <state width="1493" height="264" key="GridCell.Tab.1.center" timestamp="1598036566354">
+    <state width="1493" height="264" key="GridCell.Tab.1.bottom/0.0.1536.832@0.0.1536.832" timestamp="1598168095838" />
+    <state width="1493" height="264" key="GridCell.Tab.1.center" timestamp="1598168095838">
       <screen x="0" y="0" width="1536" height="832" />
     </state>
-    <state width="1493" height="264" key="GridCell.Tab.1.center/0.0.1536.832@0.0.1536.832" timestamp="1598036566354" />
-    <state width="1493" height="264" key="GridCell.Tab.1.left" timestamp="1598036566354">
+    <state width="1493" height="264" key="GridCell.Tab.1.center/0.0.1536.832@0.0.1536.832" timestamp="1598168095838" />
+    <state width="1493" height="264" key="GridCell.Tab.1.left" timestamp="1598168095838">
       <screen x="0" y="0" width="1536" height="832" />
     </state>
-    <state width="1493" height="264" key="GridCell.Tab.1.left/0.0.1536.832@0.0.1536.832" timestamp="1598036566354" />
-    <state width="1493" height="264" key="GridCell.Tab.1.right" timestamp="1598036566354">
+    <state width="1493" height="264" key="GridCell.Tab.1.left/0.0.1536.832@0.0.1536.832" timestamp="1598168095838" />
+    <state width="1493" height="264" key="GridCell.Tab.1.right" timestamp="1598168095838">
       <screen x="0" y="0" width="1536" height="832" />
     </state>
-    <state width="1493" height="264" key="GridCell.Tab.1.right/0.0.1536.832@0.0.1536.832" timestamp="1598036566354" />
+    <state width="1493" height="264" key="GridCell.Tab.1.right/0.0.1536.832@0.0.1536.832" timestamp="1598168095838" />
     <state x="277" y="58" key="SettingsEditor" timestamp="1597221850226">
       <screen x="0" y="0" width="1536" height="832" />
     </state>

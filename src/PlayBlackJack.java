@@ -1,4 +1,4 @@
-import java.util.LinkedList;
+/*import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -6,7 +6,7 @@ public class PlayBlackJack {
     static LinkedList<Player> players = new LinkedList<>();
     static BlackJack blackJack = new BlackJack();
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void playBlackJack() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         startup(scanner);
         blackJack.play(players, scanner);
@@ -116,3 +116,5 @@ public class PlayBlackJack {
         return true;
     }
 }
+
+ */

@@ -106,7 +106,6 @@ public class BlackJackTest {
         blackJack.dealer.hand.add(new Card(10, 4));
         blackJack.dealer.hand.add(new Card(9, 3));
         blackJack.determineWinner(player1);
-        System.out.println(player1.hand.bust);
         assert (!player1.hand.win && !player1.hand.tie);
 
     }

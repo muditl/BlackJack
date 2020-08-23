@@ -8,15 +8,19 @@ public class BlackJack {
 
     int difficulty;
     Deck deck;
-    Player dealer = new Player("Dealer", "Dealer", "Dealer", Integer.MAX_VALUE);
+    Player dealer = new Player("Dealer", "Dealer", "Dealer", 0);
 
 
-    public void play(LinkedList<Player> players, Scanner scanner) throws InterruptedException {
+    public void round(LinkedList<Player> players, Scanner scanner) throws InterruptedException {
         deck = new Deck();
 
         //give hands
         for (Player player : players) {
             player.hand = new Hand();
+            System.out.println(player.FName + " ");
+            bet(scanner, player);
+            System.out.println("player's balance:");
+            System.out.println(player.balance);
             giveHand(player);
         }
 
@@ -42,18 +46,22 @@ public class BlackJack {
         System.out.println(".");
         TimeUnit.SECONDS.sleep(1);
 
-
+        System.out.println("");
         showDealerHandFull();
+        TimeUnit.SECONDS.sleep(1);
         System.out.println("");
 
         for (Player player : players) {
             if (player.hand.tie) {
                 System.out.println(player.toString() + ", You have tied, and don't win or lose any money");
             } else if (player.hand.win) {
-                System.out.println(player.toString() + ", You win the round and hence win ₪" + player.hand.bet + "");
+                System.out.println(player.toString() + ", You win the round and hence win ₪" + player.hand.bet);
+                player.balance += player.hand.bet;
             } else {
                 System.out.println(player.toString() + ", You lost this round, and lost ₪" + player.hand.bet);
+                player.balance -= player.hand.bet;
             }
+            player.hand.bet = 0;
             TimeUnit.SECONDS.sleep(1);
         }
 
@@ -91,6 +99,10 @@ public class BlackJack {
             hit(dealer);
             randomNum = (int) (Math.random() * difficulty);
         }
+        while (dealer.hand.total > 14 && 120 - randomNum < 75) {
+            hit(dealer);
+            randomNum = (int) (Math.random() * difficulty);
+        }
 
     }
 
@@ -101,7 +113,7 @@ public class BlackJack {
         showHand(player);
         System.out.println("Hit or stand, " + player.FName + "? Type your choice.");
         String in = scanner.nextLine().toLowerCase();
-        while (PlayBlackJack.invalidInput(in, new String[]{"hit", "stand"}))
+        while (invalidInput(in, new String[]{"hit", "stand"}))
             in = scanner.nextLine().toLowerCase();
         while (in.equals("hit")) {
             hit(player);
@@ -113,7 +125,7 @@ public class BlackJack {
             }
             System.out.println("hit or stand?");
             in = scanner.nextLine().toLowerCase();
-            while (PlayBlackJack.invalidInput(in, new String[]{"hit", "stand"}))
+            while (invalidInput(in, new String[]{"hit", "stand"}))
                 in = scanner.nextLine().toLowerCase();
         }
         System.out.println("Your turn is over, " + player.FName + ".");
@@ -156,8 +168,138 @@ public class BlackJack {
         }
         player.hand.add(card);
         deck.Deck.remove(card);
+    }
+
+    public void bet(Scanner scanner, Player player) {
+        System.out.println("How much would you like to gamble in this round?");
+        String inputBet = scanner.nextLine();
+        boolean tooHigh = true;
+        while (!Player.isNumeric(inputBet) && tooHigh) {
+            inputBet = scanner.nextLine().toLowerCase();
+            int bet = Integer.parseInt(inputBet);
+            if (bet > player.balance) {
+                System.out.println("You do not have the funds to make this bet. Your balance is " + player.balance + ".");
+                tooHigh = true;
+            } else
+                tooHigh = false;
+        }
+        player.hand.bet = Integer.parseInt(inputBet);
+    }
+
+
+    static LinkedList<Player> players = new LinkedList<>();
+    static BlackJack blackJack = new BlackJack();
+
+    public static void start() throws InterruptedException {
+        Scanner scanner = new Scanner(System.in);
+        startup(scanner);
+        blackJack.round(players, scanner);
+        anotherGame(scanner);
+    }
+
+    public static void startup(Scanner scanner) throws InterruptedException {
+        System.out.println("Hello! Welcome to BlackJack by Mudit Lodha.");
+        TimeUnit.SECONDS.sleep(2
+        );
+        System.out.println("Let's start with creating some players.");
+        TimeUnit.SECONDS.sleep(2);
+        players.add(Player.playerMaker(scanner));
+        addPlayers(scanner);
+        setDifficulty(scanner);
+        System.out.println("Great! Now, lets play some BlackJack!");
+    }
+
+    public static void setDifficulty(Scanner scanner) {
+        System.out.println("What difficulty would you like the Dealer to be? Easy, medium or hard?");
+        String d = scanner.nextLine().toLowerCase();
+        while (invalidInput(d, new String[]{"easy", "medium", "hard"}))
+            d = scanner.nextLine().toLowerCase();
+        if (d.equals("easy"))
+            blackJack.difficulty = 50;
+        if (d.equals("medium"))
+            blackJack.difficulty = 75;
+        if (d.equals("hard"))
+            blackJack.difficulty = 100;
+    }
+
+    public static void anotherGame(Scanner scanner) throws InterruptedException {
+        System.out.println("Do you wanna play another game? Enter yes or no.");
+        String another = scanner.nextLine().toLowerCase();
+        while (invalidInput(another, new String[]{"yes", "no"}))
+            another = scanner.nextLine().toLowerCase();
+        if (another.equals("no")) {
+            endCard();
+        } else if (another.equals(("yes"))) {
+            System.out.println("LET'S GOoOOoooOOoOO!!!1!!111!!");
+            TimeUnit.SECONDS.sleep(1);
+            addPlayers(scanner);
+            removePlayers(scanner);
+            setDifficulty(scanner);
+            System.out.println("Let's start the next round then!");
+            blackJack.round(players, scanner);
+            anotherGame(scanner);
+        }
 
     }
+
+    public static void endCard() {
+        System.out.println("Thank you for playing BlackJack by Mudit Lodha.");
+    }
+
+    public static void addPlayers(Scanner scanner) {
+        System.out.println("Would you like another player? Enter yes or no.");
+        String in = scanner.nextLine().toLowerCase();
+        while (invalidInput(in, new String[]{"yes", "no"}))
+            in = scanner.nextLine().toLowerCase();
+        while (in.equals("yes")) {
+            players.add(Player.playerMaker(scanner));
+            System.out.println("Would you like another player? Enter yes or no.");
+            in = scanner.nextLine().toLowerCase();
+            while (invalidInput(in, new String[]{"yes", "no"}))
+                in = scanner.nextLine().toLowerCase();
+        }
+    }
+
+    public static void removePlayers(Scanner scanner) {
+        System.out.println("Would you like to remove a player?");
+        String remove = scanner.nextLine().toLowerCase();
+        while (invalidInput(remove, new String[]{"yes", "no"}))
+            remove = scanner.nextLine().toLowerCase();
+        while (remove.equals("yes")) {
+            boolean removed = false;
+            System.out.println("What is the first name of the player?");
+            String Fname = scanner.nextLine();
+            System.out.println("What is the last name of the player?");
+            String Lname = scanner.nextLine();
+            System.out.println("What is the nationality of the player?");
+            String nat = scanner.nextLine();
+            for (Player p : players) {
+                if (p.FName.equals(Fname))
+                    if (p.LName.equals(Lname))
+                        if (p.nationality.equals(nat))
+                            removed = players.remove(p);
+
+            }
+            if (removed)
+                System.out.println("Successfully removed!");
+            else
+                System.out.println("Could not find player :/");
+            System.out.println("Would you like to remove a player?");
+            remove = scanner.nextLine().toLowerCase();
+            while (invalidInput(remove, new String[]{"yes", "no"}))
+                remove = scanner.nextLine().toLowerCase();
+        }
+    }
+
+    public static boolean invalidInput(String input, String[] range) {
+        for (String string : range) {
+            if (string.equals(input))
+                return false;
+        }
+        System.out.println("The input you entered is invalid. Please try again, dumbass.");
+        return true;
+    }
+
 
 }
 
@@ -234,7 +376,13 @@ class Hand {
 
             }
         }
+        if (total > 21)
+            bust = true;
 
+    }
+
+    public void setBet(int bet) {
+        this.bet = bet;
     }
 
     @Override

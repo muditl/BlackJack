@@ -47,6 +47,7 @@ public class Player {
             bal = scanner.nextLine().toLowerCase();
 
         int b = Integer.parseInt(bal);
+        System.out.println(b);
         return new Player(f, l, n, b);
     }
 
@@ -62,7 +63,12 @@ public class Player {
             System.out.println("Please enter a whole number.");
             return false;
         }
-        return pattern.matcher(strNum).matches();
+        if (pattern.matcher(strNum).matches())
+            return true;
+        else {
+            System.out.println("Please enter a whole number.");
+            return false;
+        }
     }
 
 }
