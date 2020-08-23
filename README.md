@@ -1,7 +1,7 @@
 # BlackJack
 A BlackJack implementation in java
 
-## To play, run PlayBlackJack.java.
+## To play, run PlayGame.
 
 ## Issues:
 the betting doesnt really work. it allows bets higher than balance, and i 
